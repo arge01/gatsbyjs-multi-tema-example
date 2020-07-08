@@ -25,7 +25,6 @@ It's a static starter based on Gatsby and styled with Bootstrap - [live demo](ht
    Next, move into your new site’s directory and start it up:
 
    ```sh
-   cd gatsby-starter-bootstrap/
    gatsby develop
    ```
 
