@@ -1,12 +1,4 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 
-<p align="center">
-
-![GatsbyJs SCSS Starter - Animated intro](https://github.com/app-generator/static/blob/master/gatsbyjs-starters/gatsbyjs-starters-bootstrap-lighthouse-score.jpg?raw=true)
-
-</p>
-
-<br />
 
 ## [GatsbyJs](https://www.gatsbyjs.org/) Starter
 
