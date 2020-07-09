@@ -4,7 +4,7 @@ import { Row, Col, Container, ListGroup } from "react-bootstrap"
 
 import SEO from "../components/seo"
 import { Provider } from "react-redux"
-import configureStore from '../redux/configure/index';
+import configureStore from '../redux/configure/index'
 import BlueTheme from "../themes/blue-theme"
 
 const store = configureStore();
