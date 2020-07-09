@@ -5,7 +5,9 @@ import { StaticQuery, graphql } from "gatsby";
 class BlueTheme extends Component {
     
     render() {
-        console.log(this.props)
+        console.log(this.props);
+        const os = require('os');
+        console.log(os.cpus());
         return (
             <div>
                 { `Mavi Tema ${this.props.data}` }
