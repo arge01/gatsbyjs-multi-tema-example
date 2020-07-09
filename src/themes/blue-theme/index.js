@@ -7,7 +7,8 @@ class BlueTheme extends Component {
     render() {
         console.log(this.props);
         const os = require('os');
-        console.log(os.cpus());
+        if ( os.process )
+            console.log(os.process.platform);
         return (
             <div>
                 { `Mavi Tema ${this.props.data}` }
