@@ -20,7 +20,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
     osVersion: os.version(),
     info: os.userInfo(),
     mac: os.networkInterfaces(),
-    host: os.hostname
+    panel: os.hostname()
   };
 
   const nodeContent = JSON.stringify(myData);
