@@ -1,16 +1,11 @@
 import { combineReducers } from "redux";
 
-const newData = () => {
-  return "Bağlantı"
-}
-
-const nextData = () => {
-  return "Next Data"
+const data = () => {
+  return "Active Services"
 }
 
 const reducers = combineReducers({
-  newData,
-  nextData,
+  data,
 });
 
 export default reducers;

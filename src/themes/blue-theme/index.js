@@ -6,16 +6,15 @@ class BlueTheme extends Component {
         console.log(this.props)
         return (
             <div>
-                { `Mavi Tema ${this.props.new_data}, ${this.props.next_data}` }
+                { `Mavi Tema ${this.props.data}` }
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({data}) => {
     return {
-        new_data: state.newData,
-        next_data: state.nextData,
+        data
     }
 }
 
