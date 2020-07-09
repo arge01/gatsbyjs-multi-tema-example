@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { StaticQuery, graphql } from "gatsby"
 
 class BlueTheme extends Component {
     render() {
