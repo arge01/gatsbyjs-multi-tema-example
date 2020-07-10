@@ -8,7 +8,6 @@ import { Button, Jumbotron } from 'react-bootstrap';
 class BlueTheme extends Component {
 
     render() {
-        console.log(this.props);
         return (
             <Jumbotron>
                 <p>
