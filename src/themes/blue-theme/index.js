@@ -9,31 +9,6 @@ class BlueTheme extends Component {
         return (
             <div>
                 {`Mavi Tema ${this.props.data}`}
-            <StaticQuery
-                query={graphql`
-                    {
-                        myNodeType {
-                        mac {
-                            ...MyNodeTypeMacFragment
-                        }
-                        }
-                    }
-
-                    fragment MyNodeTypeMacFragment on MyNodeTypeMac {
-                        Loopback_Pseudo_Interface_1 {
-                          address
-                          netmask
-                          family
-                          mac
-                          internal
-                          cidr
-                          scopeid
-                        }
-                      }
-                `}
-                
-                render={data => <pre>{JSON.stringify(data, null, 4)}</pre>}
-            ></StaticQuery>
             </div>
         )
     }
