@@ -3,26 +3,48 @@ import { connect } from 'react-redux';
 import { StaticQuery, graphql } from "gatsby";
 
 class BlueTheme extends Component {
-    
+
     render() {
         console.log(this.props);
-        const os = require('os');
-        if ( os.process )
-            console.log(os.process.platform);
         return (
             <div>
-                { `Mavi Tema ${this.props.data}` }
+                {`Mavi Tema ${this.props.data}`}
                 <StaticQuery
                     query={graphql`
                     {
                         myNodeType {
-                        arch
-                        cpus {
-                            model
+                        mac {
+                            VirtualBox_Host_Only_Network {
+                            mac
+                            address
+                            cidr
+                            family
+                            internal
+                            netmask
+                            scopeid
+                            }
+                            Loopback_Pseudo_Interface_1 {
+                            mac
+                            address
+                            family
+                            netmask
+                            scopeid
+                            }
+                            VirtualBox_Host_Only_Network__2 {
+                            address
+                            internal
+                            mac
+                            netmask
+                            scopeid
+                            }
+                            Wi_Fi {
+                            mac
+                            address
+                            netmask
+                            }
                         }
-                        panel
                         }
-                    }
+                        }
                     `}
                     render={data => <pre>{JSON.stringify(data, null, 4)}</pre>}
                 ></StaticQuery>
@@ -31,7 +53,7 @@ class BlueTheme extends Component {
     }
 }
 
-const mapStateToProps = ({data}) => {
+const mapStateToProps = ({ data }) => {
     return {
         data
     }

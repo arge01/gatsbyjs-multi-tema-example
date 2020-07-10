@@ -6,11 +6,9 @@
 
 // You can delete this file if you're not using it
 const os = require('os');
-const macaddress = require('macaddress');
 
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
-  let macadd = "";
 
   // Data can come from anywhere, but for now create it manually
   const myData = {
