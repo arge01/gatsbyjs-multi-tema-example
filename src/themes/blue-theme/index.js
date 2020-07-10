@@ -9,45 +9,31 @@ class BlueTheme extends Component {
         return (
             <div>
                 {`Mavi Tema ${this.props.data}`}
-                <StaticQuery
-                    query={graphql`
+            <StaticQuery
+                query={graphql`
                     {
                         myNodeType {
                         mac {
-                            VirtualBox_Host_Only_Network {
-                            mac
-                            address
-                            cidr
-                            family
-                            internal
-                            netmask
-                            scopeid
-                            }
-                            Loopback_Pseudo_Interface_1 {
-                            mac
-                            address
-                            family
-                            netmask
-                            scopeid
-                            }
-                            VirtualBox_Host_Only_Network__2 {
-                            address
-                            internal
-                            mac
-                            netmask
-                            scopeid
-                            }
-                            Wi_Fi {
-                            mac
-                            address
-                            netmask
-                            }
+                            ...MyNodeTypeMacFragment
                         }
                         }
+                    }
+
+                    fragment MyNodeTypeMacFragment on MyNodeTypeMac {
+                        Loopback_Pseudo_Interface_1 {
+                          address
+                          netmask
+                          family
+                          mac
+                          internal
+                          cidr
+                          scopeid
                         }
-                    `}
-                    render={data => <pre>{JSON.stringify(data, null, 4)}</pre>}
-                ></StaticQuery>
+                      }
+                `}
+                
+                render={data => <pre>{JSON.stringify(data, null, 4)}</pre>}
+            ></StaticQuery>
             </div>
         )
     }
