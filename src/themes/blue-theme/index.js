@@ -1,23 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { StaticQuery, graphql } from "gatsby";
+import { bindActionCreators } from "redux";
+import { nextData } from "../../redux/index";
+import NextVar from "./next-data";
+import { Button, Jumbotron } from 'react-bootstrap';
 
 class BlueTheme extends Component {
 
     render() {
         console.log(this.props);
         return (
-            <div>
-                {`Mavi Tema ${this.props.data}`}
-            </div>
+            <Jumbotron>
+                <p>
+                    <NextVar/>
+                </p>
+                <p>
+                    <Button variant="warning" onClick={ () => this.props.dispatch(nextData()) }>Next Data</Button>
+                </p>
+            </Jumbotron>
         )
     }
 }
 
-const mapStateToProps = ({ data }) => {
-    return {
-        data
-    }
-}
+const mapDispatchToProps = dispatch => {
+    return {actions: bindActionCreators(nextData, dispatch)}
+};
 
-export default connect(mapStateToProps)(BlueTheme);
+export default connect(mapDispatchToProps)(BlueTheme);
