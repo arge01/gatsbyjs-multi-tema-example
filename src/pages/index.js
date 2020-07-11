@@ -6,7 +6,6 @@ import { Provider } from "react-redux"
 import configureStore from '../redux/configure/index'
 import BlueTheme from "../themes/blue-theme"
 import Login from "./login"
-import { graphql } from "gatsby"
 
 const store = configureStore();
 
@@ -47,6 +46,12 @@ export const query = graphql`
       nlink
       root
       modifiedTime
+    }
+    myNodeType {
+      platform
+      totalmem
+      arch
+      panel
     }
   }
 `
