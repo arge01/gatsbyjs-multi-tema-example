@@ -32,7 +32,6 @@ module.exports = {
         author_link: 'yuceyazilim.com.tr',
         short_name: `yuce-yazilim-b2b`,
         start_url: `/`,
-        token: process.env.GATSBY_CSRF_TOKEN,
         licence: `MIT`
       },
     },
