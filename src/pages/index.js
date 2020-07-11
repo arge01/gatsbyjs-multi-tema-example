@@ -48,12 +48,6 @@ export const query = graphql`
       root
       modifiedTime
     }
-    myNodeType {
-      platform
-      totalmem
-      arch
-      panel
-    }
   }
 `
 
