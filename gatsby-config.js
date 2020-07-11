@@ -5,10 +5,11 @@ require("dotenv").config({
 module.exports = {
   pathPrefix: "/gatsby-react-bootstrap-starter",
   siteMetadata: {
-    title: `GatsbyJS - Bootstrap4 Starter`,
-    description: `A starter that includes react-bootstrap and react-icons, along with SASS compilation.`,
-    author: `Billy Jacoby`,
-    siteUrl: `https://gatsby-starter-bootstrap.appseed.us`
+    title: `Yuce Yazılım / Project B2B`,
+    description: `Bu bir b2b projesidir.`,
+    author: `Yuce Yazilim`,
+    siteUrl: 'http://www.yuceyazilim.com.tr/',
+    license: 'MIT'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,12 +26,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-react-bootstrap`,
-        short_name: `react-bootstrap`,
+        name: `Yuce Yazılım / Project B2B`,
+        project: 'B2B',
+        author: 'Yuce Yazılım',
+        author_link: 'yuceyazilim.com.tr',
+        short_name: `yuce-yazilim-b2b`,
         start_url: `/`,
-        background_color: `#20232a`,
-        theme_color: `#20232a`,
-        display: `minimal-ui`,
+        token: process.env.GATSBY_CSRF_TOKEN,
+        licence: `MIT`
       },
     },
     `gatsby-plugin-sitemap`
