@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Router } from "@reach/router"
 
 import SEO from "../components/seo"
@@ -10,18 +10,23 @@ import { graphql } from "gatsby"
 
 const store = configureStore();
 
-const IndexPage = ({data}) => (
-  <>
-    <pre>{JSON.stringify(data, null, 4)}</pre>
-    <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
-      <Provider store={store}>
-        <Router>
-          <Login path="/login" />
-          <BlueTheme path="/" />
-        </Router>
-      </Provider>
-  </>
-)
+const IndexPage = ({data}) => {
+  useEffect(() => {
+    //console.log(document.querySelector('link[rel="manifest"]'));
+  });
+  return (
+    <>
+      <pre>{JSON.stringify(data, null, 4)}</pre>
+      <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
+        <Provider store={store}>
+          <Router>
+            <Login path="/login" />
+            <BlueTheme path="/" />
+          </Router>
+        </Provider>
+    </>
+  )
+};
 
 export const data = graphql`
     {
