@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class Login extends Component {
+class Login extends Component {
     render() {
         return (
             <>
-                Login User
+                Login User {`Mavi Tema ${this.props.data}`}
             </>
         )
     }
 }
+
+const mapStateToProps = ({ data }) => {
+    return {
+        data
+    }
+}
+
+export default connect(mapStateToProps)(Login);
