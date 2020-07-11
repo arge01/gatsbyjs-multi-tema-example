@@ -12,7 +12,7 @@ const store = configureStore();
 
 const IndexPage = ({data}) => (
   <>
-    <pre>{JSON.stringify(data, null, 4)}</pre>
+
     <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
       <Provider store={store}>
         <Router>
@@ -22,36 +22,5 @@ const IndexPage = ({data}) => (
       </Provider>
   </>
 )
-
-export const data = graphql`
-  {
-    site {
-      buildTime
-    }
-    sitePlugin {
-      packageJson {
-        version
-        description
-        license
-      }
-    }
-    sitePage {
-      componentPath
-    }
-    directory {
-      dev
-      name
-      nlink
-      root
-      modifiedTime
-    }
-    myNodeType {
-      platform
-      totalmem
-      arch
-      panel
-    }
-  }
-`
 
 export default IndexPage
