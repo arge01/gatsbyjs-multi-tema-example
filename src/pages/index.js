@@ -6,6 +6,7 @@ import { Provider } from "react-redux"
 import configureStore from '../redux/configure/index'
 import BlueTheme from "../themes/blue-theme"
 import Login from "./login"
+import { graphql } from "gatsby"
 
 const store = configureStore();
 
@@ -22,12 +23,9 @@ const IndexPage = ({data}) => (
   </>
 )
 
-export const query = graphql`
+export const data = graphql`
   {
     site {
-      port
-      polyfill
-      host
       buildTime
     }
     sitePlugin {
