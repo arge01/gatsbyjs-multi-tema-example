@@ -9,7 +9,7 @@ class BlueTheme extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            manifest: ""
+            manifest: "You Don't Have A Manifest"
         }
     }
     componentDidMount(){
