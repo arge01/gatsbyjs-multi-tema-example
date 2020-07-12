@@ -5,29 +5,14 @@
  */
 
 // You can delete this file if you're not using it
-const { createFilePath } = require(`gatsby-source-filesystem`);
-const os = require('os');
-
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  const { createNodeField } = boundActionCreators;
-  if (node.internal.type === `MarkdownRemark`) {
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug
-    });
-  }
-};
-
+/*
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
-  const manifest = require("./gatsby-config");
 
   // Data can come from anywhere, but for now create it manually
   const myData = {
-    manifest
-  };
+    //your data
+  }
 
   const nodeContent = JSON.stringify(myData);
 
@@ -46,3 +31,4 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const node = Object.assign({}, myData, nodeMeta);
   createNode(node);
 };
+*/

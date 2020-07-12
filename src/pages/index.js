@@ -29,19 +29,21 @@ const IndexPage = ({data}) => {
 };
 
 export const data = graphql`
-    {
-        sitePlugin {
-            pluginOptions {
-                name
-                project
-                author
-                author_link
-                short_name
-                start_url
-                licence
-            }
+  {
+    allFile(filter: {absolutePath: {regex: "/manifest/"}}) {
+      edges {
+        node {
+          name
+          nlink
+          publicURL
+          root
+          absolutePath
+          base
+          extension
         }
+      }
     }
+  }
 `
 
 export default IndexPage
