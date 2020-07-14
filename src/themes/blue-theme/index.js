@@ -9,7 +9,8 @@ class BlueTheme extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            manifest: "You Don't Have A Manifest"
+            manifest: "You Don't Have A Manifest",
+            getListData: []
         }
     }
     componentDidMount() {
@@ -28,18 +29,18 @@ class BlueTheme extends Component {
                     <NextVar/>
                 </p>
                 <p>
-                    <Button variant="warning" onClick={ () => this.props.dispatch(nextData()) }>Next Data</Button>
+                    <Button variant="warning" onClick={ () => this.props.dispatch(nextData()) }>Change Reducers</Button>
                 </p>
                 <p>
-                    {this.state.manifest}
+                    { this.state.manifest }
                 </p>
+                <pre>
+                  <b>Users: </b>
+                  {JSON.stringify(this.props.getListData, null, 4)}
+                </pre>
             </Jumbotron>
         )
     }
-}
-
-const mapStateToProps = state => {
-  return { getListData: state.getListData }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -48,5 +49,7 @@ const mapDispatchToProps = dispatch => {
       ...bindActionCreators({ nextData, getData }, dispatch),
     }
 };
+
+const mapStateToProps = ({getListData}) => ({getListData});
 
 export default connect( mapStateToProps, mapDispatchToProps )(BlueTheme);
