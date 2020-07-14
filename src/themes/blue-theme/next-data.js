@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 class NextVar extends Component {
     render() {
-        console.log(this.props)
         return (
             <div>
                 {`Mavi Tema ${this.props.data}`}
@@ -12,11 +11,6 @@ class NextVar extends Component {
     }
 }
 
-const mapStateToProps = ({ data, getListData }) => {
-    return {
-        data,
-        getListData
-    }
-}
+const mapStateToProps = ({ data }) => ({data});
 
 export default connect(mapStateToProps)(NextVar);

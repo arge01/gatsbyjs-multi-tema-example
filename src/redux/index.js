@@ -23,10 +23,14 @@ export const serviceExample = () => {
 }
 
 export const getData = () => {
-  return dispatch => dispatch(getSuccessData(serviceExample()))
+  return dispatch => {
+    Axios.get("http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
+      .then(res => dispatch(getSuccessData(res.data)) )
+      .catch(err => console.log(err) );
+  }
 }
 
-const getListData = (state = "burası", action) => {
+const getListData = (state = [], action) => {
   switch ( action.type ) {
     case GETDATA:
       return state = action.payload
