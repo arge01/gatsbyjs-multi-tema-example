@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from "redux";
-import { nextData } from "../../redux/index";
+import { nextData, getData } from "../../redux/index";
 import NextVar from "./next-data";
 import { Button, Jumbotron } from 'react-bootstrap';
 
@@ -13,6 +13,7 @@ class BlueTheme extends Component {
         }
     }
     componentDidMount(){
+        this.props.dispatch(getData());
         if ( document.querySelector('link[rel="manifest"]') ) {
             this.setState({manifest: "You Have A Manifest"})
         } else {
@@ -38,7 +39,13 @@ class BlueTheme extends Component {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {actions: bindActionCreators(nextData, dispatch)}
+    return {
+      actions: bindActionCreators({ nextData, getData }, dispatch),
+    }
 };
+
+const mapStateToProps = ({getListData}) => {
+    return { getListData }
+}
 
 export default connect(mapDispatchToProps)(BlueTheme);
