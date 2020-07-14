@@ -1,14 +1,41 @@
 import { combineReducers } from "redux";
+import Axios from "axios"
 
 const NEXTDATA = "NEXTDATA";
+const GETDATA = "GETDATA";
 
 export const nextData = () => ({
   type: NEXTDATA,
   payload: "Next active services"
 });
 
-const initialState = "Active services"
+export const getSuccessData = ( response ) => ({
+  type: GETDATA,
+  payload: response
+})
 
+export const serviceExample = () => {
+  const data = [];
+  Axios.get("http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
+    .then(res => data.push(res.data))
+    .catch(err => data.push(err));
+  return data
+}
+
+export const getData = () => {
+  return dispatch => dispatch(getSuccessData(serviceExample()))
+}
+
+const getListData = (state = "burası", action) => {
+  switch ( action.type ) {
+    case GETDATA:
+      return state = action.payload
+    default:
+      return state
+  }
+}
+
+const initialState = "Active services";
 const data = (state=initialState, action) => {
   switch ( action.type ) {
     case NEXTDATA:
@@ -20,6 +47,7 @@ const data = (state=initialState, action) => {
 
 const reducers = combineReducers({
   data,
+  getListData
 });
 
 export default reducers;
