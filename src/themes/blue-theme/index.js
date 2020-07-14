@@ -38,12 +38,15 @@ class BlueTheme extends Component {
     }
 }
 
+const mapStateToProps = state => {
+  return { getListData: state.getListData }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
-      actions: bindActionCreators({ nextData, getData }, dispatch),
+      dispatch,
+      ...bindActionCreators({ nextData, getData }, dispatch),
     }
 };
 
-const mapStateToProps = ({getListData}) => getListData
-
-export default connect(mapDispatchToProps)(BlueTheme);
+export default connect( mapStateToProps, mapDispatchToProps )(BlueTheme);
