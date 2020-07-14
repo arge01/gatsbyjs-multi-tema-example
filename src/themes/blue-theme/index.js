@@ -12,7 +12,7 @@ class BlueTheme extends Component {
             manifest: "You Don't Have A Manifest"
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         this.props.dispatch(getData());
         if ( document.querySelector('link[rel="manifest"]') ) {
             this.setState({manifest: "You Have A Manifest"})
@@ -44,8 +44,6 @@ const mapDispatchToProps = dispatch => {
     }
 };
 
-const mapStateToProps = ({getListData}) => {
-    return { getListData }
-}
+const mapStateToProps = ({getListData}) => getListData
 
 export default connect(mapDispatchToProps)(BlueTheme);
