@@ -16,7 +16,7 @@ export const getSuccessData = ( response ) => ({
 
 export const serviceExample = () => {
   const data = [];
-  Axios.get("http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
+  Axios.get("https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
     .then(res => data.push(res.data))
     .catch(err => data.push(err));
   return data
@@ -24,7 +24,7 @@ export const serviceExample = () => {
 
 export const getData = () => {
   return dispatch => {
-    Axios.get("http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
+    Axios.get("https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
       .then(res => dispatch(getSuccessData(res.data)) )
       .catch(err => console.log(err) );
   }
