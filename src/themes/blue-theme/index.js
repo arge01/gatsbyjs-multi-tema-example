@@ -14,7 +14,6 @@ class BlueTheme extends Component {
         }
     }
     componentDidMount() {
-        this.props.dispatch(getData());
         if ( document.querySelector('link[rel="manifest"]') ) {
             this.setState({manifest: "You Have A Manifest"})
         } else {
@@ -36,6 +35,9 @@ class BlueTheme extends Component {
                 </p>
                 <pre>
                   <b>Users: </b>
+                  {
+                      this.props.dispatch(getData())
+                  }
                   {JSON.stringify(this.props.getListData, null, 4)}
                 </pre>
             </Jumbotron>
