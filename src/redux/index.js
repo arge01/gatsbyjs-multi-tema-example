@@ -24,7 +24,7 @@ export const getSuccessData = ( response ) => ({
 
 export const getData = () => {
   return dispatch => {
-    Axios.get("http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/Columns")
+    Axios.post("https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/Columns")
       .then(res => dispatch(getSuccessData(res.data)) )
       .catch(err => console.log(err) );
   }

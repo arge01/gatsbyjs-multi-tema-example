@@ -16,10 +16,10 @@ class BlueTheme extends Component {
     }
     componentDidMount() {
         this.props.dispatch(getData());
-        if ( document.querySelector('link[rel="manifest"]') ) {
-            this.setState({manifest: "You Have A Manifest"})
+        if (document.querySelector('link[rel="manifest"]')) {
+            this.setState({ manifest: "You Have A Manifest" })
         } else {
-            this.setState({manifest: "You Don't Have A Manifest"})
+            this.setState({ manifest: "You Don't Have A Manifest" })
         }
     }
 
@@ -27,17 +27,46 @@ class BlueTheme extends Component {
         return (
             <Jumbotron>
                 <p>
-                    <NextVar/>
+                    <NextVar />
                 </p>
                 <p>
-                    <Button variant="warning" onClick={ () => this.props.dispatch(nextData()) }>Change Reducers</Button>
+                    <Button variant="warning" onClick={() => this.props.dispatch(nextData())}>Change Reducers</Button>
                 </p>
                 <p>
-                    { this.state.manifest }
+                    {this.state.manifest}
                 </p>
                 <pre>
-                  <b>Users: </b>
-                  {JSON.stringify(this.props.getListData, null, 4)}
+                    <b>Users: </b>
+                    {JSON.stringify(this.props.getListData, null, 4)}
+                    <Table striped bordered hover>
+                        <thead>
+                            <tr>
+                                <th table-stun-id="">StokAdet1</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td colSpan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </Table>
                 </pre>
             </Jumbotron>
         )
@@ -46,11 +75,11 @@ class BlueTheme extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-      dispatch,
-      ...bindActionCreators({ nextData, getData }, dispatch),
+        dispatch,
+        ...bindActionCreators({ nextData, getData }, dispatch),
     }
 };
 
-const mapStateToProps = ({getListData}) => ({getListData});
+const mapStateToProps = ({ getListData }) => ({ getListData });
 
-export default connect( mapStateToProps, mapDispatchToProps )(BlueTheme);
+export default connect(mapStateToProps, mapDispatchToProps)(BlueTheme);
