@@ -48,6 +48,7 @@ class BlueTheme extends Component {
                             </tr>
                         </thead>
                         <tbody>
+                            {/* 50 result */}
                             <tr>
                                 <td>1</td>
                                 <td>Mark</td>
@@ -65,6 +66,8 @@ class BlueTheme extends Component {
                                 <td colSpan="2">Larry the Bird</td>
                                 <td>@twitter</td>
                             </tr>
+                            ...
+                            {/* 50 result pagi: 1 */}
                         </tbody>
                     </Table>
                 </pre>
