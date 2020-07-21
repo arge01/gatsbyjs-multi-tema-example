@@ -14,17 +14,17 @@ export const getSuccessData = ( response ) => ({
   payload: response
 })
 
-export const serviceExample = () => {
+/*export const serviceExample = () => {
   const data = [];
   Axios.get("https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
     .then(res => data.push(res.data))
     .catch(err => data.push(err));
   return data
-}
+}*/
 
 export const getData = () => {
   return dispatch => {
-    Axios.get("https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/User/GetAll")
+    Axios.get("http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/Columns")
       .then(res => dispatch(getSuccessData(res.data)) )
       .catch(err => console.log(err) );
   }

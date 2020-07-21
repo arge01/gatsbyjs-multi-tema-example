@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { nextData, getData } from "../../redux/index";
 import NextVar from "./next-data";
 import { Button, Jumbotron } from 'react-bootstrap';
+import Table from 'react-bootstrap/Table'
 
 class BlueTheme extends Component {
     constructor(props) {
