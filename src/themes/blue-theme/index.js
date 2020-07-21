@@ -41,7 +41,7 @@ class BlueTheme extends Component {
                     <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th table-stun-id="">StokAdet1</th>
+                                <th key="" table-stun-id="">Depo</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
                                 <th>Username</th>
