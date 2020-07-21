@@ -32,7 +32,7 @@ class BlueTheme extends Component {
     const config = {
       method: "post",
       url:
-        "http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/SearchProduct",
+        "https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/SearchProduct",
       headers: {
         "Content-Type": "application/json",
       },
@@ -56,7 +56,7 @@ class BlueTheme extends Component {
     const config = {
       method: "post",
       url:
-        "http://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/SearchProduct",
+        "https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/SearchProduct",
       headers: {
         "Content-Type": "application/json",
       },
