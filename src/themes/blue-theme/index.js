@@ -26,8 +26,11 @@ class BlueTheme extends Component {
     } else {
       this.setState({ manifest: "You Don't Have A Manifest" })
     }
+  }
 
-    const data = JSON.stringify({ ara: "123", sayfa: 1 })
+  searchSubmit = () => {
+
+    const data = JSON.stringify({ ara: this.state.search, sayfa: 1 })
 
     const config = {
       method: "post",
@@ -48,29 +51,14 @@ class BlueTheme extends Component {
       })
   }
 
-  searchSubmit = () => {
-    console.log(this.state.search)
+  jsonColumn = (obj, column) => {
+    const columnRes = column.veriTabaniSutunu;
+    let colmunRest = "";
 
-    const data = JSON.stringify({ ara: this.state.search, sayfa: 1 })
+    if ( typeof columnRes === "string")
+      colmunRest = columnRes.charAt(0).toLowerCase() + columnRes.slice(1);
 
-    const config = {
-      method: "post",
-      url:
-        "https://testdinamikotoapi.yuceyazilim.com.tr/api/services/app/UrunAramaService/SearchProduct",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    }
-
-    Axios(config)
-      .then(response => {
-        this.setState({ responseData: response.data.result })
-        console.log(this.state.responseData)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    return obj[colmunRest];
   }
 
   render() {
@@ -104,15 +92,26 @@ class BlueTheme extends Component {
             <thead>
               <tr>
                 {this.props.getListData.map((val, key) => {
-                  return <th key={key}>{val.sutunAdi}</th>
+                  return <th data-veri-tabani-sutunu={val.veriTabaniSutunu} key={key}>{val.sutunAdi}</th>
                 })}
               </tr>
             </thead>
             <tbody>
               {this.state.responseData.map((val, key) => {
                 return (
-                  //console.log(val),
-                  <tr key={key}></tr>
+                  <tr key={key}>
+                    {
+                      this.props.getListData.map(list => {
+                        return (
+                          <td key={list.veriTabaniSutunu}>
+                            {
+                              this.jsonColumn(val, list)
+                            }
+                          </td>
+                        )
+                      })
+                    }
+                  </tr>
                 )
               })}
             </tbody>
