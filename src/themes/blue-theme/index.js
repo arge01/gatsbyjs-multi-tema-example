@@ -86,11 +86,14 @@ class BlueTheme extends Component {
             type="text"
             onChange={event => this.setState({ search: event.target.value })}
             placeholder="Ürün adı"
+            onKeyDown={(e) => e.keyCode === 13 && this.searchSubmit()}
           />
           <Button variant="warning" onClick={() => this.searchSubmit()}>
             Ara
           </Button>
-          { this.state.loading && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>Yükleniyor...</p> }
+          { this.state.loading && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>
+            Yükleniyor...
+          </p> }
           { this.state.err && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>
             Sorgulama hatası!
           </p> }
