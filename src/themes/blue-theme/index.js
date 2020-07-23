@@ -15,6 +15,8 @@ class BlueTheme extends Component {
       getListData: [],
       responseData: [],
       search: "",
+      loading: false,
+      err: false
     }
   }
 
@@ -30,6 +32,7 @@ class BlueTheme extends Component {
 
   searchSubmit = () => {
 
+    this.setState({loading: true})
     const data = JSON.stringify({ ara: this.state.search, sayfa: 1 })
 
     const config = {
@@ -44,10 +47,11 @@ class BlueTheme extends Component {
 
     Axios(config)
       .then(response => {
-        this.setState({ responseData: response.data.result })
+        this.setState({ responseData: response.data.result, loading: false })
       })
       .catch(error => {
-        console.log(error)
+        this.setState({loading: false, err: true});
+        console.log(error);
       })
   }
 
@@ -86,11 +90,16 @@ class BlueTheme extends Component {
           <Button variant="warning" onClick={() => this.searchSubmit()}>
             Ara
           </Button>
+          { this.state.loading && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>Yükleniyor...</p> }
+          { this.state.err && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>
+            Sorgulama hatası!
+          </p> }
         </p>
         <pre>
           <Table striped bordered hover>
             <thead>
               <tr>
+                <th key={0}>#</th>
                 {this.props.getListData.map((val, key) => {
                   return <th data-veri-tabani-sutunu={val.veriTabaniSutunu} key={key}>{val.sutunAdi}</th>
                 })}
@@ -100,6 +109,7 @@ class BlueTheme extends Component {
               {this.state.responseData.map((val, key) => {
                 return (
                   <tr key={key}>
+                    <td key={key}>{key+=1}</td>
                     {
                       this.props.getListData.map(list => {
                         return (
