@@ -102,40 +102,7 @@ class BlueTheme extends Component {
           </p>}
         </p>
 
-        <StaticQuery
-          query={graphql`
-                {
-                  randomApi {
-                    allData {
-                      results {
-                        id {
-                          name
-                          value
-                        }
-                        email
-                        gender
-                        location {
-                          city
-                          country
-                          state
-                          street {
-                            name
-                            number
-                          }
-                        }
-                        nat
-                        phone
-                      }
-                    }
-                  }
-                }
-              `}
-          render={data => {
-            return (
-              <pre>{JSON.stringify(data, null, 4)}</pre>
-            )
-          }}
-        ></StaticQuery>
+        
 
         <pre>
           <Table striped bordered hover>
