@@ -20,10 +20,11 @@ class BlueTheme extends Component {
       err: false,
       randomApi: {}
     }
+    this.props.dispatch(getData())
   }
 
   componentDidMount() {
-    this.props.dispatch(getData())
+    
 
     if (document.querySelector("link[rel=\"manifest\"]")) {
       this.setState({ manifest: "You Have A Manifest" })
