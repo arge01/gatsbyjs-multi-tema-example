@@ -4,6 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
 
+const path = require(`path`);
+const { createFilePath } = require(`gatsby-source-filesystem`);
+const fetch = require(`node-fetch`);
+
 // You can delete this file if you're not using it
 /*
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
@@ -32,3 +36,24 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   createNode(node);
 };
 */
+
+exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+  const randomApis = await fetch(
+    `https://randomuser.me/api/`,
+    { method: "GET" },
+    {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+  );
+  const randomApi = await randomApis.json();
+  createNode({
+    allData: randomApi,
+    id: `random-user-api-graphql-data`,
+    internal: {
+      type: `randomApi`,
+      contentDigest: createContentDigest(randomApi),
+    },
+  })
+}

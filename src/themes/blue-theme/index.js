@@ -6,6 +6,8 @@ import NextVar from "./next-data"
 import { Button, Jumbotron } from "react-bootstrap"
 import Table from "react-bootstrap/Table"
 import Axios from "axios"
+import { StaticQuery, graphql } from "gatsby"
+import RandomApi from "./random-api"
 
 class BlueTheme extends Component {
   constructor(props) {
@@ -16,14 +18,15 @@ class BlueTheme extends Component {
       responseData: [],
       search: "",
       loading: false,
-      err: false
+      err: false,
+      randomApi: {}
     }
   }
 
   componentDidMount() {
     this.props.dispatch(getData())
 
-    if (document.querySelector('link[rel="manifest"]')) {
+    if (document.querySelector("link[rel=\"manifest\"]")) {
       this.setState({ manifest: "You Have A Manifest" })
     } else {
       this.setState({ manifest: "You Don't Have A Manifest" })
@@ -32,7 +35,7 @@ class BlueTheme extends Component {
 
   searchSubmit = () => {
 
-    this.setState({loading: true})
+    this.setState({ loading: true })
     const data = JSON.stringify({ ara: this.state.search, sayfa: 1 })
 
     const config = {
@@ -50,26 +53,26 @@ class BlueTheme extends Component {
         this.setState({ responseData: response.data.result, loading: false })
       })
       .catch(error => {
-        this.setState({loading: false, err: true});
-        console.log(error);
+        this.setState({ loading: false, err: true })
+        console.log(error)
       })
   }
 
   jsonColumn = (obj, column) => {
-    const columnRes = column.veriTabaniSutunu;
-    let colmunRest = "";
+    const columnRes = column.veriTabaniSutunu
+    let colmunRest = ""
 
-    if ( typeof columnRes === "string")
-      colmunRest = columnRes.charAt(0).toLowerCase() + columnRes.slice(1);
+    if (typeof columnRes === "string")
+      colmunRest = columnRes.charAt(0).toLowerCase() + columnRes.slice(1)
 
-    return obj[colmunRest];
+    return obj[colmunRest]
   }
 
   render() {
     return (
       <Jumbotron>
         <p>
-          <NextVar />
+          <NextVar/>
         </p>
         <p>
           <Button
@@ -91,13 +94,49 @@ class BlueTheme extends Component {
           <Button variant="warning" onClick={() => this.searchSubmit()}>
             Ara
           </Button>
-          { this.state.loading && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>
+          {this.state.loading && <p style={{ padding: "30px", color: "red", fontWeight: "bold" }}>
             Yükleniyor...
-          </p> }
-          { this.state.err && <p style={{padding: "30px", color: "red", fontWeight: "bold"}}>
+          </p>}
+          {this.state.err && <p style={{ padding: "30px", color: "red", fontWeight: "bold" }}>
             Sorgulama hatası!
-          </p> }
+          </p>}
         </p>
+
+        <StaticQuery
+          query={graphql`
+                {
+                  randomApi {
+                    allData {
+                      results {
+                        id {
+                          name
+                          value
+                        }
+                        email
+                        gender
+                        location {
+                          city
+                          country
+                          state
+                          street {
+                            name
+                            number
+                          }
+                        }
+                        nat
+                        phone
+                      }
+                    }
+                  }
+                }
+              `}
+          render={data => {
+            return (
+              <pre>{JSON.stringify(data, null, 4)}</pre>
+            )
+          }}
+        ></StaticQuery>
+
         <pre>
           <Table striped bordered hover>
             <thead>
@@ -112,7 +151,7 @@ class BlueTheme extends Component {
               {this.state.responseData.map((val, key) => {
                 return (
                   <tr key={key}>
-                    <td key={key}>{key+=1}</td>
+                    <td key={key}>{key += 1}</td>
                     {
                       this.props.getListData.map(list => {
                         return (

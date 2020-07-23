@@ -17,6 +17,7 @@
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.35",
     "gatsby-plugin-sitemap": "^2.2.1",
+    "gatsby-source-apiserver": "^2.0.0",
     "gatsby-source-filesystem": "^2.3.14",
     "gatsby-transformer-sharp": "^2.1.18",
     "macaddress": "^0.5.1",
