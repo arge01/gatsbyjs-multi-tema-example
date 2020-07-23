@@ -12,7 +12,7 @@ export default class IndexPage extends Component {
     }
   }
   componentDidMount(){
-    this.setState({val: "Value"});
+    this.setState({val: "Value Değişti"});
   }
   render() {
     return (
