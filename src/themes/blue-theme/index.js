@@ -7,7 +7,6 @@ import { Button, Jumbotron } from "react-bootstrap"
 import Table from "react-bootstrap/Table"
 import Axios from "axios"
 import { StaticQuery, graphql } from "gatsby"
-import RandomApi from "./random-api"
 
 class BlueTheme extends Component {
   constructor(props) {

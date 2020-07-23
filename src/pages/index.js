@@ -2,6 +2,7 @@ import React, { useEffect } from "react"
 
 import SEO from "../components/seo"
 import BlueTheme from "../themes/blue-theme"
+import Login from "./login"
 import { graphql } from "gatsby"
 
 const IndexPage = ({data}) => {
