@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 
 import SEO from "../components/seo"
 import BlueTheme from "../themes/blue-theme"
-import Login from "./login"
 import { graphql } from "gatsby"
 
 const IndexPage = ({data}) => {
@@ -13,9 +12,7 @@ const IndexPage = ({data}) => {
     <>
       <pre>{JSON.stringify(data, null, 4)}</pre>
       <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
-        <>
-          <BlueTheme/>
-        </>
+      <BlueTheme/>
     </>
   )
 };
