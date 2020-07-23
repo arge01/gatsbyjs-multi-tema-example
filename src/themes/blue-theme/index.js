@@ -168,6 +168,7 @@ class BlueTheme extends Component {
             </tbody>
           </Table>
         </pre>
+        
       </Jumbotron>
     )
   }
