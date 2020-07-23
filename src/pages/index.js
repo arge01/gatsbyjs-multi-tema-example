@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import BlueTheme from "../themes/blue-theme"
 import Login from "./login"
 import { graphql } from "gatsby"
+import RandomApi from "../themes/blue-theme/random-api"
 
 const IndexPage = ({data}) => {
   useEffect(() => {

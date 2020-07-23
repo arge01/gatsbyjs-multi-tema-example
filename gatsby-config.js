@@ -42,6 +42,26 @@ module.exports = {
         licence: `MIT`
       },
     },
+    /*
+     * Random data api client graphql
+     * Data maps
+    */
+    {
+      resolve: "gatsby-source-apiserver",
+      options: {
+        url: 'https://randomuser.me/api/',
+        method: 'get',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        typePrefix: 'internal__',
+        name: `posts`,
+        params: {
+          results: 10
+        },
+        verboseOutput: true,
+      }
+    },
     `gatsby-plugin-sitemap`
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
