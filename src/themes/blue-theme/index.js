@@ -34,7 +34,7 @@ class BlueTheme extends Component {
 
   searchSubmit = () => {
 
-    this.setState({ loading: true })
+    this.setState({ loading: true, err: false })
     const data = JSON.stringify({ ara: this.state.search, sayfa: 1 })
 
     const config = {
@@ -49,7 +49,7 @@ class BlueTheme extends Component {
 
     Axios(config)
       .then(response => {
-        this.setState({ responseData: response.data.result, loading: false, err: false })
+        this.setState({ responseData: response.data.result, loading: false })
       })
       .catch(error => {
         this.setState({ loading: false, err: true })
