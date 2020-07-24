@@ -37,7 +37,7 @@ exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
 };
 */
 
-exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
+/*exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) => {
   const randomApis = await fetch(
     `https://randomuser.me/api/`,
     { method: "GET" },
@@ -56,4 +56,4 @@ exports.sourceNodes = async ({ actions: { createNode }, createContentDigest }) =
       contentDigest: createContentDigest(randomApi),
     },
   })
-}
+}*/
