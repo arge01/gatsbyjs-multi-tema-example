@@ -6,7 +6,7 @@ import NextVar from "./next-data"
 import { Button, Jumbotron } from "react-bootstrap"
 import Table from "react-bootstrap/Table"
 import Axios from "axios"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql } from "gatsby";
 
 class BlueTheme extends Component {
   constructor(props) {
@@ -20,12 +20,11 @@ class BlueTheme extends Component {
       err: false,
       randomApi: {}
     }
-    this.props.dispatch(getData())
+
+    this.props.dispatch(getData());
   }
 
   componentDidMount() {
-    
-
     if (document.querySelector("link[rel=\"manifest\"]")) {
       this.setState({ manifest: "You Have A Manifest" })
     } else {
@@ -50,7 +49,7 @@ class BlueTheme extends Component {
 
     Axios(config)
       .then(response => {
-        this.setState({ responseData: response.data.result, loading: false })
+        this.setState({ responseData: response.data.result, loading: false, err: false })
       })
       .catch(error => {
         this.setState({ loading: false, err: true })
@@ -102,7 +101,7 @@ class BlueTheme extends Component {
           </p>}
         </p>
 
-        
+
 
         <pre>
           <Table striped bordered hover>
@@ -136,7 +135,7 @@ class BlueTheme extends Component {
             </tbody>
           </Table>
         </pre>
-        
+
       </Jumbotron>
     )
   }
