@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
 import SEO from "../components/seo"
-import BlueTheme from "../themes/blue-theme"
 import { graphql } from "gatsby"
+import { Link } from "gatsby"
 
 export default class IndexPage extends Component {
   constructor(props){
@@ -19,7 +19,11 @@ export default class IndexPage extends Component {
       <>
         {this.state.val}
         <SEO title="Home" keywords={[`gatsby`, `react`, `bootstrap`]} />
-        <BlueTheme/>
+        <pre>
+          <Link to="webPages/dinamikoto.com">Dinamik Oto</Link>
+          <br/>
+          <Link to="webPages/mepayedekparca.com">Mepa Yedek Parça</Link>
+        </pre>
       </>
     )
   }
