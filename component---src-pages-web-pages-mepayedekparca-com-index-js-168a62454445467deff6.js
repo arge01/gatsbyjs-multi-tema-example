@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{NQY9:function(t,e,r){"use strict";r.r(e),r.d(e,"default",(function(){return p}));var n=r("q1tI"),o=r.n(n);var p=function(t){var e,r;function n(){return t.apply(this,arguments)||this}return r=t,(e=n).prototype=Object.create(r.prototype),e.prototype.constructor=e,e.__proto__=r,n.prototype.render=function(){return o.a.createElement("div",null,"Merhaba Mepa Yedek Parça")},n}(n.Component)}}]);
+//# sourceMappingURL=component---src-pages-web-pages-mepayedekparca-com-index-js-168a62454445467deff6.js.map

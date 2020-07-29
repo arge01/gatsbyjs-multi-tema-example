@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{SGa5:function(t,n,r){"use strict";r.r(n);var e=r("q1tI"),o=r.n(e);var p=function(t){var n,r;function e(){return t.apply(this,arguments)||this}return r=t,(n=e).prototype=Object.create(r.prototype),n.prototype.constructor=n,n.__proto__=r,e.prototype.render=function(){return o.a.createElement(o.a.Fragment,null,"Login User")},e}(e.Component);n.default=p}}]);
+//# sourceMappingURL=component---src-pages-login-js-71079faf0498397b10b6.js.map
