@@ -3,7 +3,8 @@ require("dotenv").config({
 });
 
 module.exports = {
-  pathPrefix: "/gatsby-react-bootstrap-starter",
+  //assetPrefix: `http://192.168.1.105:8500`, //gatsby build --prefix-paths
+  pathPrefix: "/",
   siteMetadata: {
     title: `Yuce Yazılım / Project B2B`,
     description: `Bu bir b2b projesidir.`,
@@ -64,9 +65,17 @@ module.exports = {
       }
     },
     */
-    `gatsby-plugin-sitemap`
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        typeName: 'RMAPI',
+        fieldName: 'rickAndMorty',
+        url: 'https://rickandmortyapi.com/graphql',
+      },
+    },
   ],
 }
