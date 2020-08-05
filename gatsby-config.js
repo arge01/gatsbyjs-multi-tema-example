@@ -43,38 +43,27 @@ module.exports = {
         licence: `MIT`
       },
     },
-    /*
-     * Random data api client graphql
-     * Data maps
-    */
-    /*
     {
-      resolve: "gatsby-source-apiserver",
+      resolve: "gatsby-source-graphql",
       options: {
-        url: 'https://randomuser.me/api/',
-        method: 'get',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        typePrefix: 'internal__',
-        name: `posts`,
-        params: {
-          results: 10
-        },
-        verboseOutput: true,
-      }
+        // Arbitrary name for the remote schema Query type
+        typeName: "SWAPI",
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: "swapi",
+        // Url to query from
+        url: "https://swapi-graphql.netlify.app/.netlify/functions/index",
+      },
     },
-    */
     `gatsby-plugin-sitemap`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     {
-      resolve: 'gatsby-source-graphql',
+      resolve: `gatsby-source-graphql`,
       options: {
-        typeName: 'RMAPI',
-        fieldName: 'rickAndMorty',
-        url: 'https://rickandmortyapi.com/graphql',
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`, //highlight-line
+        headers: {
+          Authorization: `Bearer 85d57138216d58168bb4d633f2e8a1549e6ec105`,
+        },
       },
     },
   ],
