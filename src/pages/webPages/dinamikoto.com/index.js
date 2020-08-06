@@ -6,7 +6,6 @@ export default class DinamikOto extends Component {
     render() {
         return (
             <>
-            Değişiklik
               <BlueTheme/>
                 <StaticQuery
                   query={graphql`
